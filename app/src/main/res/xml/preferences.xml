@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="swp_ativar_servico"
+        android:title="@string/options_enable_service_head"
+        android:summary="@string/options_enable_service_sub"/>
+    <EditTextPreference
+        android:defaultValue="68330100"
+        android:inputType="number"
+        android:key="swp_id_api"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="ID" />
+
+</PreferenceScreen>

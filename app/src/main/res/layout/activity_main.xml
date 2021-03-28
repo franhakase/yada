@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main_view">
+
+<Spinner
+    android:id="@+id/spnInputLanguage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:entries="@array/languagues"
+    android:background="@drawable/ic_rounded_rectangle"
+    android:backgroundTint="@color/off_white"
+    android:entryValues="@array/languagues_value"
+    />
+    <com.cielyang.android.clearableedittext.ClearableEditText
+        android:id="@+id/txtInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_custom_edittext"
+        android:gravity="start"
+        android:hint="@string/input_hint"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:padding="10dp"
+        app:clearIconDrawWhenFocused="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/txtTokenizedInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:focusable="false"
+        android:gravity="top"
+        android:hint="@string/tokenized_input_hint"
+
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="12sp" />
+
+    <Spinner
+        android:id="@+id/spnOutputLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:entries="@array/languagues"
+        android:entryValues="@array/languagues_value"
+        android:background="@drawable/ic_rounded_rectangle"
+        android:backgroundTint="@color/off_white"
+        />
+
+
+    <EditText
+        android:id="@+id/txtOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_custom_edittext"
+        android:gravity="start"
+        android:hint="@string/output_hint"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btTranslate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_circle"
+
+        android:fontFamily="sans-serif-black"
+        android:text="@string/translate_button"
+        android:textColor="@color/off_white"
+        android:textSize="18sp" />
+</LinearLayout>

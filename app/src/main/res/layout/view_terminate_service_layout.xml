@@ -1,0 +1,15 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:id="@+id/view_terminate_service"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/ic_gradient_overlay"
+    android:gravity="center"
+    android:visibility="invisible"
+    android:layout_gravity="bottom"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/ivTerminate"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_x_mark"/>
+</RelativeLayout>
