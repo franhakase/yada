@@ -2,103 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/main_view">
 
-<Spinner
-    android:id="@+id/spnInputLanguage"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="5dp"
-    android:entries="@array/languagues"
-    android:background="@drawable/ic_rounded_rectangle"
-    android:backgroundTint="@color/off_white"
-    android:entryValues="@array/languagues_value"
-    />
-    <com.cielyang.android.clearableedittext.ClearableEditText
-        android:id="@+id/txtInput"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_custom_edittext"
-        android:gravity="start"
-        android:hint="@string/input_hint"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:padding="10dp"
-        app:clearIconDrawWhenFocused="false"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark" />
-
-    <EditText
-        android:id="@+id/txtTokenizedInput"
+        android:text="@string/app_main_function_description"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:focusable="false"
-        android:gravity="top"
-        android:hint="@string/tokenized_input_hint"
-
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="12sp" />
-
-    <Spinner
-        android:id="@+id/spnOutputLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:entries="@array/languagues"
-        android:entryValues="@array/languagues_value"
-        android:background="@drawable/ic_rounded_rectangle"
-        android:backgroundTint="@color/off_white"
-        />
-
-
-    <EditText
-        android:id="@+id/txtOutput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_custom_edittext"
-        android:gravity="start"
-        android:hint="@string/output_hint"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="18sp" />
-
+        android:text="@string/options_enable_service_sub"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tap_to_translate"
+        android:contentDescription="@string/app_service_enabled_description" />
     <Button
-        android:id="@+id/btTranslate"
+        android:id="@+id/btAtivar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/ic_circle"
-
-        android:fontFamily="sans-serif-black"
-        android:text="@string/translate_button"
-        android:textColor="@color/off_white"
-        android:textSize="18sp" />
+        android:layout_margin="10dp"
+        android:text="@string/options_enable_service_head"
+        android:background="@drawable/ic_rounded_rectangle"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/off_white"/>
 </LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dlMain"
+    android:layout_width="match_parent"
+    android:layout_height="480dp"
+    android:orientation="vertical">
+<Button
+    android:id="@+id/btTransliterate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/colorPrimaryDark"
+    android:text="@string/tokenized_input_hint"
+    android:textAllCaps="false"
+    android:textColor="@color/off_white"
+    android:textStyle="bold"
+    android:textSize="16sp"
+    android:drawableStart="@drawable/ic_yada_notif"
+
+    />
+    <WebView
+        android:id="@+id/wvMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

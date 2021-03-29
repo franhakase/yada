@@ -24,16 +24,10 @@
         </activity>
         <activity android:name="eu.franhakase.yada.MainActivity">
         </activity>
-        <activity android:name="eu.franhakase.yada.TranslationDialogActivity"
-            android:theme="@style/Theme.Transparent"></activity>
-        <activity android:name="eu.franhakase.yada.SettingsActivity"
-            android:label="Settings"
-            android:parentActivityName="eu.franhakase.yada.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.franhakase.yada.MainActivity"/>
-        </activity>
-        <service android:name="eu.franhakase.yada.ClipToTranslateService" android:enabled="true"></service>
+        <activity android:name="eu.franhakase.yada.NewDialogTranslationActivity"
+            android:theme="@style/Theme.Transparent"/>
+
+        <service android:name="eu.franhakase.yada.ClipToTranslateService" android:enabled="true"/>
     </application>
 
 </manifest>

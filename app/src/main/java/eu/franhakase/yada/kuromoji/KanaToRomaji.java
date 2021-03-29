@@ -130,6 +130,7 @@ public class KanaToRomaji
         m.put("ゥ", "u");
         m.put("ェ", "e");
         m.put("ォ", "o");
+        m.put("ャ", "ya");
 
         //ァィゥェォ
 
@@ -259,6 +260,11 @@ public class KanaToRomaji
         m.put("、", ",");
         m.put("･", " ");
         m.put("・", " ");
+        m.put("　", " ");
+
+        //arcaicos
+        m.put("ヰ", "wi");
+        m.put("ヱ", "we");
 
 
 
@@ -311,7 +317,7 @@ public class KanaToRomaji
                 }
             }
         }
-        return t.toString();
+        return t.toString().replaceAll("[ ]{2,}", " ");
     }
 
 }

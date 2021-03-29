@@ -3,8 +3,6 @@ package eu.franhakase.yada;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-
 import eu.franhakase.yada.kuromoji.Kuromoji;
 
 public class SplashScreen extends Activity
