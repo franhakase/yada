@@ -8,8 +8,6 @@ import android.view.MotionEvent;
 public class XImageButton extends androidx.appcompat.widget.AppCompatImageButton
 {
 
-
-
     public XImageButton(Context context) {
         super(context);
     }
@@ -32,7 +30,6 @@ public class XImageButton extends androidx.appcompat.widget.AppCompatImageButton
         }
         return false;
     }
-
 
     @Override
     public boolean performClick()

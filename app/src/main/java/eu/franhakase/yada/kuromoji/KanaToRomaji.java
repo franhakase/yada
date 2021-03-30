@@ -1,13 +1,19 @@
 package eu.franhakase.yada.kuromoji;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
 public class KanaToRomaji
 {
-    Map<String, String> m = new HashMap<String, String>();
+    Map<String, String> m = new HashMap<>();
 
     // Constructor
-    public KanaToRomaji() {
+    public KanaToRomaji()
+    {
         m.put("ア", "a");
         m.put("イ", "i");
         m.put("ウ", "u");
@@ -131,6 +137,8 @@ public class KanaToRomaji
         m.put("ェ", "e");
         m.put("ォ", "o");
         m.put("ャ", "ya");
+        m.put("ュ", "yu");
+        m.put("ョ", "yo");
 
         //ァィゥェォ
 
@@ -239,6 +247,9 @@ public class KanaToRomaji
         m.put("ﾋﾟｬ", "pya");
         m.put("ﾋﾟｭ", "pyu");
         m.put("ﾋﾟｮ", "pyo");
+        m.put("ｬ", "ya");
+        m.put("ｭ", "yu");
+        m.put("ｮ", "yo");
 
         //Casos especiais(?)
         m.put("ｳﾞｧ", "va");
@@ -269,55 +280,67 @@ public class KanaToRomaji
 
 
     }
-    public String convert(String s)
+    public String convert(Context c, String s)
     {
         //hack feioso para corrigir a mania que o Kuromoji tem de separar o ッ(tsu pequeno) da sílaba seguinte...
         s = s.replace("ッ ", "ッ");
         StringBuilder t = new StringBuilder();
-        for ( int i = 0; i < s.length(); i++ )
+        try
         {
-            if ( i <= s.length() - 2 )
+            for ( int i = 0; i < s.length(); i++ )
             {
-                if ( m.containsKey(s.substring(i,i+2)))
+                if ( i <= s.length() - 2 )
                 {
-                    t.append(m.get(s.substring(i, i+2)));
-                    i++;
-                }
-                else if (m.containsKey(s.substring(i, i+1)))
-                {
-                    t.append(m.get(s.substring(i, i+1)));
-                }
-                else if ( s.charAt(i) == 'ッ'  && KanaUtils.isKatakana(s.charAt(i+1)))
-                {
-
-                    t.append(m.get(s.substring(i+1, i+2)).charAt(0));
-                }
-                else if(s.charAt(i) == 'ッ' && !KanaUtils.isKatakana(s.charAt(i+1)))
-                {
-                    t.append("tsu");
-                }
-                else if(s.charAt(i) == 'ー' && KanaUtils.isKatakana(s.charAt(i-1)) || s.charAt(i) == 'ｰ' && KanaUtils.isKatakana(s.charAt(i-1)))
-                {
-                    t.append(t.charAt(t.length()-1));
-                    //ー
+                    if ( m.containsKey(s.substring(i,i+2)))
+                    {
+                        t.append(m.get(s.substring(i, i+2)));
+                        i++;
+                    }
+                    else if (m.containsKey(s.substring(i, i+1)))
+                    {
+                        t.append(m.get(s.substring(i, i+1)));
+                    }
+                    //ッ
+                    else if ( s.charAt(i) == 'ッ'  && KanaUtils.isKatakana(s.charAt(i+1)) || s.charAt(i) == 'ッ'  && KanaUtils.isKatakana(s.charAt(i+1)))
+                    {
+                        t.append(Objects.requireNonNull(m.get(s.substring(i + 1, i + 2))).charAt(0));
+                    }
+                    else if(s.charAt(i) == 'ッ' && !KanaUtils.isKatakana(s.charAt(i+1)))
+                    {
+                        t.append("tsu");
+                    }
+                    else if(s.charAt(i) == 'ー' && KanaUtils.isKatakana(s.charAt(i-1)) || s.charAt(i) == 'ｰ' && KanaUtils.isKatakana(s.charAt(i-1)))
+                    {
+                        t.append(t.charAt(t.length()-1));
+                        //ー
+                    }
+                    else
+                    {
+                        t.append(s.charAt(i));
+                    }
                 }
                 else
                 {
-                    t.append(s.charAt(i));
-                }
-            }
-            else
-                {
-                if (m.containsKey(s.substring(i, i+1)))
-                {
-                    t.append(m.get(s.substring(i, i+1)));
-                } else
+                    if (m.containsKey(s.substring(i, i+1)))
                     {
-                    t.append(s.charAt(i));
+                        t.append(m.get(s.substring(i, i+1)));
+                    } else
+                    {
+                        t.append(s.charAt(i));
+                    }
                 }
             }
+            //O texto resultante tem algumas imperfeições na formatação, por isso aplicamos algumas expressões regulares para mitigar isso.
+            //1:Remove quebras de linhas desnecessárias;
+            //2:Remove os espaços excessivos;
+            //3:Remove os espaços antes de sinais de pontuação.
+            return t.toString().replace("/^\\h+|\\h+$|(\\R){2,}|(\\s){2,}/m", "").replaceAll("\\s+(?=\\p{Punct})", "");//.replaceAll("[\\r\\n]+", "\r\n").replaceAll("[ ]{2,}", " ").replaceAll("\\s+(?=\\p{Punct})", "");
         }
-        return t.toString().replaceAll("[ ]{2,}", " ");
+        catch(Exception e)
+        {
+            Toast.makeText(c, e.getMessage(), Toast.LENGTH_LONG).show();
+            return t.toString();
+        }
     }
 
 }
