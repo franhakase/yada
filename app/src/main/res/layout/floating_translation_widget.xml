@@ -13,6 +13,5 @@
         android:background="@drawable/ic_circle"
         android:src="@drawable/ic_yada"
         android:scaleType="fitCenter"
-        android:backgroundTint="@color/colorPrimaryDark"
         android:contentDescription="@string/app_open_widget_description" />
 </RelativeLayout>

@@ -11,4 +11,12 @@
     <string name="app_service_show_hide_description">Mostrar/Esconder botão</string>
     <string name="app_main_function_description">Toque para traduzir</string>
     <string name="app_service_already_running">O serviço já está sendo executado.</string>
+    <string-array name="lst_romaji_mode">
+        <item>Linear</item>
+        <item>Detalhado</item>
+    </string-array>
+    <integer-array name="lst_romaji_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
 </resources>
