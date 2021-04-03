@@ -11,6 +11,8 @@
     <string name="app_service_show_hide_description">Mostrar/Esconder botão</string>
     <string name="app_main_function_description">Toque para traduzir</string>
     <string name="app_service_already_running">O serviço já está sendo executado.</string>
+    <string name="app_deepl_webpage_cleanup">javascript:document.getElementsByClassName(\'dl_header\')[0].remove(); document.getElementsByClassName(\'dl_footer\')[0].remove(); document.getElementById(\'lmt_quotes_article\').remove();</string>
+    <string name = "app_credits_info">!!!</string>
     <string-array name="lst_romaji_mode">
         <item>Linear</item>
         <item>Detalhado</item>

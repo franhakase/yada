@@ -20,7 +20,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "eu.franhakase.clipl"
+        applicationId "eu.franhakase.yada"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

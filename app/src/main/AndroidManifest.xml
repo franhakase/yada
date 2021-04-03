@@ -25,7 +25,8 @@
         <activity android:name="eu.franhakase.yada.MainActivity">
         </activity>
         <activity android:name="eu.franhakase.yada.NewDialogTranslationActivity"
-            android:theme="@style/Theme.Transparent"/>
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"/>
 
         <service android:name="eu.franhakase.yada.ClipToTranslateService" android:enabled="true"/>
     </application>
