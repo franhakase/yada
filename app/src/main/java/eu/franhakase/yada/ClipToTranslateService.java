@@ -130,7 +130,6 @@ public class ClipToTranslateService extends Service implements View.OnTouchListe
                 params.y = 0;
 
 
-                //getting windows services and adding the floating view to it
                 mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
                 WindowManager.LayoutParams params2 = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY : WindowManager.LayoutParams.TYPE_PHONE ,
@@ -142,7 +141,7 @@ public class ClipToTranslateService extends Service implements View.OnTouchListe
                 ivTerminate = mTerminateServiceView.findViewById(R.id.ivTerminate);
                 mWindowManager.addView(mTerminateServiceView, params2);
                 mWindowManager.addView(mFloatingView, params);
-                //getting the collapsed and expanded view from the floating view
+
                 View collapsedView = mFloatingView.findViewById(R.id.layoutCollapsed);
 
                 Display display = mWindowManager.getDefaultDisplay();

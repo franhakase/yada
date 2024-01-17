@@ -35,7 +35,6 @@ public class NewDialogTranslationActivity extends Activity implements Button.OnC
     private KanaToRomaji kn;
     private String Original = "";
     boolean bResume = false;
-    boolean bFirstFinish = false;
     private WebView wvMain;
     private ClipboardManager clipboard;
     @SuppressLint("SetJavaScriptEnabled")
@@ -57,19 +56,12 @@ public class NewDialogTranslationActivity extends Activity implements Button.OnC
         btTransliterate.setOnClickListener(this);
         wvMain = findViewById(R.id.wvMain);
         wvMain.getSettings().setJavaScriptEnabled(true);
+        wvMain.getSettings().setDomStorageEnabled(true);
         wvMain.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url)
             {
                 super.onPageFinished(view, url);
-                if(!bFirstFinish)
-                {
-                    bFirstFinish = true;
-                    if(url.toLowerCase().contains("deepl.com"))
-                    {
-                        wvMain.loadUrl(getResources().getString(R.string.app_deepl_webpage_cleanup));
-                    }
-                }
             }
         });
 
@@ -88,7 +80,7 @@ public class NewDialogTranslationActivity extends Activity implements Button.OnC
             if(   clip != null && clip.getItemCount() > 0 && clip.getItemAt(0).getText() != null)
             {
                 Original = clip.getItemAt(0).getText().toString();
-                String url = String.format(Locale.getDefault(), "https://www.deepl.com/translator#auto/en/%s", Uri.encode(clip.getItemAt(0).getText().toString()));
+                String url = String.format(Locale.getDefault(), "https://www.deepl.com/translator-mobile#ja/en/%s", Uri.encode(clip.getItemAt(0).getText().toString()));
                 wvMain.loadUrl(Objects.requireNonNull(url));
             }
         }

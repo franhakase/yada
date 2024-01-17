@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.btSettings)
         {
             return false;
-            //Intent intent = new Intent(this, SettingsActivity.class);
-            //startActivity(intent);
-            //return true;
         }
         return super.onOptionsItemSelected(item);
     }
